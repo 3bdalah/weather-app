@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Weather List</h2>
+
+    <div class="row">
+        <div class="col-sm-12 mb-3">
+           <input  type="text" class="form-control" placeholder="search by city" [(ngModel)]="searchText" />
+           <button class="btn btn-primary  btn-block" (click)="handleFilterWeatherList()">Filter</button>
+           <button class="btn btn-primary  btn-block m-2" (click)="handleResetFilterList()">Reset</button>
+        </div>
+        <div class="col-sm-12 mb-3">
+        <button  class="btn btn-success" (click)="sortWeatherCitis('city')"> sort By City</button>
+        </div>
+         
+    </div>
+    <ul class="list-group">
+        @if (filterWeatherList.length === 0){
+
+            <h2>Not Found Weather List</h2>
+        }
+          
+      @for(cityWeather of filterWeatherList; track  cityWeather.id){
+        @if(filterWeatherList.length!=0){
+            <!-- <h2>Not Found Weather List</h2> -->
+            <button class="list-group-item btn  btn-block  btn-success" (click)="navigateWeather(cityWeather.temperature)">
+            {{cityWeather.city}} : {{cityWeather.temperature}}</button>
+        }
+      }
+    </ul>
+</div>

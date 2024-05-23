@@ -1,0 +1,9 @@
+<div class="container">
+<div class="card mt-5" [appBackGroundColor]="temperature">
+ <div class="card-body">
+      <h2 class="card-title text-white">Weather App</h2>
+      <p class="card-text text-white">Current  Temperature {{temperature | temeratureConversion : unit}}</p>
+      <button  (click)="toggleUnit()">toggle unit</button>
+ </div>
+</div>
+</div>
